@@ -13,17 +13,20 @@
   </head>
 
   <body>
-    <main>
-      <header>
-        <h1>Weather Dashboard</h1>
-      </header>
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
 
+    <main>
       <section class="search">
         <h3>Search for a city:</h3>
+        <br />
         <form>
           <input />
           <button></button>
         </form>
+        <br />
+        <br />
         <button class="chosen-cities"></button>
       </section>
 
@@ -38,42 +41,48 @@
         </div>
         <div class="forecast">
           <h2>5-Day Forecast:</h2>
-          <div class="container">
-            <div class="row">
+          <br />
+          <div class="container d-flex justify-content-center justify-content-between">
+            <div class="row" id="box">
               <div class="col">
                 <h4>Date</h4>
+                <br>
                 <div id="weather-symbol"></div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="box">
               <div class="col">
                 <h4>Date</h4>
+                <br>
                 <div id="weather-symbol"></div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="box">
               <div class="col">
                 <h4>Date</h4>
+                <br>
                 <div id="weather-symbol"></div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="box">
               <div class="col">
                 <h4>Date</h4>
+                <br>
                 <div id="weather-symbol"></div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="box">
               <div class="col">
                 <h4>Date</h4>
+                <br>
                 <div id="weather-symbol"></div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
@@ -82,7 +91,6 @@
           </div>
         </div>
       </section>
-    
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
