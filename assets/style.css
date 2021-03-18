@@ -38,6 +38,14 @@ main {
     border-radius: 25px;
 }
 
+h3 {
+    margin-top: 5px;
+}
+
+#input-btn {
+    width: 30px;
+}
+
 .results {
     padding: 20px;
     margin: 30px;
