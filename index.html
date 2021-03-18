@@ -1,18 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
+  </head>
 
-</head>
-<body>
+  <body>
+    <main>
+      <header>
+        <h1>Weather Dashboard</h1>
+      </header>
+
+      <section class="search">
+        <h3>Search for a city:</h3>
+        <form>
+          <input />
+          <button></button>
+        </form>
+        <button class="chosen-cities"></button>
+      </section>
+
+      <section class="results">
+        <div class="current-weather">
+          <h2>City & Date & Weather Symbol</h2>
+          <br />
+          <p>Temperature:</p>
+          <p>Humidity:</p>
+          <p>Wind Speed:</p>
+          <p>UV Index:</p>
+        </div>
+        <div class="forecast">
+          <h2>5-Day Forecast:</h2>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h4>Date</h4>
+                <div id="weather-symbol"></div>
+                <p>Temp:</p>
+                <p>Humidity:</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Date</h4>
+                <div id="weather-symbol"></div>
+                <p>Temp:</p>
+                <p>Humidity:</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Date</h4>
+                <div id="weather-symbol"></div>
+                <p>Temp:</p>
+                <p>Humidity:</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Date</h4>
+                <div id="weather-symbol"></div>
+                <p>Temp:</p>
+                <p>Humidity:</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Date</h4>
+                <div id="weather-symbol"></div>
+                <p>Temp:</p>
+                <p>Humidity:</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script text="text/javascript" src="./assets/script.js"></script>
-</body>
+  </body>
 </html>
