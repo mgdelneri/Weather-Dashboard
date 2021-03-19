@@ -1,80 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&display=swap");
 
 :root {
-    --back-color: rgb(152, 152, 38);
-    --pop-color: rgb(182, 67, 18);
-    --subtle-color: lightgray;
+  --back-color: rgb(152, 152, 38);
+  --pop-color: rgb(182, 67, 18);
+  --subtle-color: lightgray;
 }
 
 body {
-    font-family: 'Della Respira', serif;
-    font-weight: bold;
-    color: var(--pop-color);
+  font-family: "Della Respira", serif;
+  font-weight: bold;
+  color: var(--pop-color);
 }
 
 header {
-    text-align: center;
-    background-color: var(--back-color);
-     
+  text-align: center;
+  background-color: var(--back-color);
 }
 
 h1 {
-    font-size: 70px;
-    font-weight: bolder;
-    padding: 50px;
-    margin: 0;
+  font-size: 70px;
+  font-weight: bolder;
+  padding: 50px;
+  margin: 0;
 }
 
 main {
-    background-color: var(--subtle-color);
-    display: flex;
+  background-color: var(--subtle-color);
+  display: flex;
 }
 
 .search {
-    padding: 15px;
-    margin: 30px;
-    margin-top: 40px;
-    border: 8px solid var(--pop-color); 
-    border-radius: 25px;
+  padding: 15px;
+  margin: 30px;
+  margin-top: 40px;
+  border: 8px solid var(--pop-color);
+  border-radius: 25px;
 }
 
 h3 {
-    margin-top: 5px;
+  margin-top: 5px;
+}
+
+input {
+  border-color: var(--back-color);
 }
 
 #input-btn {
-    width: 30px;
+  width: 30px;
+  border-color: var(--back-color);
+}
+
+#chosen-cities {
+  width: 210px;
+  height: 35px;
+  border-color: var(--back-color);
 }
 
 .results {
-    padding: 20px;
-    margin: 30px;
-    margin-top: 40px;
-    width: 100%;
-    border: 8px solid var(--pop-color); 
-    border-radius: 25px;
+  padding: 20px;
+  margin: 30px;
+  margin-top: 40px;
+  width: 100%;
+  border: 8px solid var(--pop-color);
+  border-radius: 25px;
 }
 
 .current-weather {
-    padding: 15px;
-    margin: 20px;
+  padding: 15px;
+  margin: 20px;
 }
 
 .current-weather p {
-    font-size: larger;
+  font-size: larger;
 }
 
 .forecast {
-    padding: 15px;
-    margin: 20px;
+  padding: 15px;
+  margin: 20px;
 }
 
 #box {
-    padding: 15px;
-    padding-left: 7px;
-    margin: 15px;
-    border: 3px solid var(--back-color);
-    border-radius: 25px;
-    font-size: large;
+  padding: 15px;
+  padding-left: 7px;
+  margin: 15px;
+  border: 3px solid var(--back-color);
+  border-radius: 25px;
+  font-size: large;
 }
-

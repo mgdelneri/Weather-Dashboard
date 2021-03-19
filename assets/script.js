@@ -24,4 +24,3 @@
     // TODO: weather conditions icon
     // TODO: temperature
     // TODO: humidity
-
