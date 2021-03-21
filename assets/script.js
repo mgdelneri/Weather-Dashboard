@@ -20,108 +20,124 @@ var inputValue = "";
 renderLastInput();
 
 // Event listener attached to the button attached to the input field
-inputBtn.addEventListener("click", function(event) {
-    // Prevent default button behavior
-    event.preventDefault();
-    
-    // Moves search history down when button is clicked to make room for new input
-    if (firstCityBtn.textContent) {
-        fifthCityBtn.textContent = fourthCityBtn.textContent;
-        fourthCityBtn.textContent = thirdCityBtn.textContent;
-        thirdCityBtn.textContent = secondCityBtn.textContent;
-        secondCityBtn.textContent = firstCityBtn.textContent;
-    };
+inputBtn.addEventListener("click", function (event) {
+  // Prevent default button behavior
+  event.preventDefault();
 
-    inputValue = input.value;
+  // Moves search history down when button is clicked to make room for new input
+  if (firstCityBtn.textContent) {
+    fifthCityBtn.textContent = fourthCityBtn.textContent;
+    fourthCityBtn.textContent = thirdCityBtn.textContent;
+    thirdCityBtn.textContent = secondCityBtn.textContent;
+    secondCityBtn.textContent = firstCityBtn.textContent;
+  }
 
-    // Saves input value in local storage and gets input to display in search history
-    localStorage.setItem("cityName", inputValue);
-    var lastInput = localStorage.getItem("cityName");
-    firstCityBtn.textContent = lastInput;
-    // Saves search history in local storage
-    localStorage.setItem("firstBtn", firstCityBtn.textContent);
-    localStorage.setItem("secondBtn", secondCityBtn.textContent);
-    localStorage.setItem("thirdBtn", thirdCityBtn.textContent);
-    localStorage.setItem("fourthBtn", fourthCityBtn.textContent);
-    localStorage.setItem("fifthBtn", fifthCityBtn.textContent);
+  inputValue = input.value;
 
-    // Fetches relevant city data from Open Weather API
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432")
-        .then (function(response) {
-            console.log(response);
+  // Saves input value in local storage and gets input to display in search history
+  localStorage.setItem("cityName", inputValue);
+  var lastInput = localStorage.getItem("cityName");
+  firstCityBtn.textContent = lastInput;
+  // Saves search history in local storage
+  localStorage.setItem("firstBtn", firstCityBtn.textContent);
+  localStorage.setItem("secondBtn", secondCityBtn.textContent);
+  localStorage.setItem("thirdBtn", thirdCityBtn.textContent);
+  localStorage.setItem("fourthBtn", fourthCityBtn.textContent);
+  localStorage.setItem("fifthBtn", fifthCityBtn.textContent);
+
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=e855ba782204791deaddac674c970432`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+      console.log(latitude);
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+      ).then(function (response) {
+        return response.json();
+      }).then (function (response) {
+        console.log(response)
+
+        currentCity.textContent = inputValue + " " + new Date(response.current.dt);
+
+      })
     });
-    // Clears input field after submitting 
-    form.reset();
-})
+
+  // Clears input field after submitting
+  form.reset();
+});
 
 // Function that renders the last input searched from local storage for all of search history
 function renderLastInput() {
-    var lastInput = localStorage.getItem("cityName");
-    
-    if (!lastInput) {
-        return;
-    };
+  var lastInput = localStorage.getItem("cityName");
 
-    firstCityBtn.textContent = lastInput;
+  if (!lastInput) {
+    return;
+  }
 
-    var lastBtn1 = localStorage.getItem("secondBtn");
+  firstCityBtn.textContent = lastInput;
 
-    if (!lastBtn1) {
-        return;
-    };
+  var lastBtn1 = localStorage.getItem("secondBtn");
 
-    secondCityBtn.textContent = lastBtn1;
+  if (!lastBtn1) {
+    return;
+  }
 
-    var lastBtn2 = localStorage.getItem("thirdBtn");
+  secondCityBtn.textContent = lastBtn1;
 
-    if (!lastBtn2) {
-        return;
-    };
+  var lastBtn2 = localStorage.getItem("thirdBtn");
 
-    thirdCityBtn.textContent = lastBtn2;
+  if (!lastBtn2) {
+    return;
+  }
 
-    var lastBtn3 = localStorage.getItem("fourthBtn");
+  thirdCityBtn.textContent = lastBtn2;
 
-    if (!lastBtn3) {
-        return;
-    };
+  var lastBtn3 = localStorage.getItem("fourthBtn");
 
-    fourthCityBtn.textContent = lastBtn3;
+  if (!lastBtn3) {
+    return;
+  }
 
-    var lastBtn4 = localStorage.getItem("fifthBtn");
+  fourthCityBtn.textContent = lastBtn3;
 
-    if (!lastBtn4) {
-        return;
-    };
+  var lastBtn4 = localStorage.getItem("fifthBtn");
 
-    fifthCityBtn.textContent = lastBtn3;
+  if (!lastBtn4) {
+    return;
+  }
 
+  fifthCityBtn.textContent = lastBtn4;
 }
 
-
 // TODO: When user searches for city in input field:
-    // TODO: When button is pressed:
-        // TODO: prevent default
-        // TODO: put city name in local storage
-        // TODO: city name appears in search history buttons below
-        // TODO: fetch current weather parameters and 5-day forecast parameters for results section
+// TODO: When button is pressed:
+// TODO: prevent default
+// TODO: put city name in local storage
+// TODO: city name appears in search history buttons below
+// TODO: fetch current weather parameters and 5-day forecast parameters for results section
 
 // TODO: When user clicks on a city in search history, the city's updated current weather and 5-day forecast appears
 
 // TODO: Current weather parameters:
-    // TODO: city name
-    // TODO: today's date
-    // TODO: weather conditions icon
-    // TODO: current temperature
-    // TODO: current humidity
-    // TODO: current wind speed
-    // TODO: current UV index
+// TODO: city name
+// TODO: today's date
+// TODO: weather conditions icon
+// TODO: current temperature
+// TODO: current humidity
+// TODO: current wind speed
+// TODO: current UV index
 
 // TODO: Attach colors to UV index indication whether conditions are favorable (green), moderate(yellow), or severe(red)
 
 // TODO: Forecast/future weather conditions parameters:
-    // TODO: 5-day forecast
-    // TODO: the date
-    // TODO: weather conditions icon
-    // TODO: temperature
-    // TODO: humidity
+// TODO: 5-day forecast
+// TODO: the date
+// TODO: weather conditions icon
+// TODO: temperature
+// TODO: humidity
