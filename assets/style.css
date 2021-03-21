@@ -35,6 +35,8 @@ main {
   margin-top: 40px;
   border: 8px solid var(--pop-color);
   border-radius: 25px;
+  height: 400px;
+  text-align: center;
 }
 
 h3 {
@@ -50,7 +52,7 @@ input {
   border-color: var(--back-color);
 }
 
-#chosen-cities {
+.cityBtn {
   width: 210px;
   height: 35px;
   border-color: var(--back-color);

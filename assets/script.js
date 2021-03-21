@@ -1,6 +1,6 @@
 var input = document.querySelector("input");
 var inputBtn = document.querySelector("#input-btn");
-var citiesBtn = document.querySelector("#chosen-cities");
+var citiesBtn = document.querySelector(".cityBtn");
 var currentCity = document.querySelector("#current-city");
 var currentTemp = document.querySelector("#current-temp");
 var currentHumidity = document.querySelector("#current-humidity");
@@ -14,7 +14,8 @@ inputBtn.addEventListener("click", function(event) {
     event.preventDefault();
     inputValue = input.value;
     console.log(inputValue);
-    localStorage.setItem("cityName", input.value);
+    localStorage.setItem("cityName", inputValue);
+
 
     fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432")
         .then (function(response) {
