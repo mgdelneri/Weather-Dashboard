@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -34,12 +34,12 @@
 
       <section class="results">
         <div class="current-weather">
-          <h2>City & Date & Weather Icon</h2>
+          <h2 id="current-city">City & Date & Weather Icon</h2>
           <br />
-          <p>Temperature:</p>
-          <p>Humidity:</p>
-          <p>Wind Speed:</p>
-          <p>UV Index:</p>
+          <p id="current-temp">Temperature:</p>
+          <p id="current-humidity">Humidity:</p>
+          <p id="current-wind">Wind Speed:</p>
+          <p id="current-uv">UV Index:</p>
         </div>
         <div class="forecast">
           <h2>5-Day Forecast:</h2>
@@ -51,7 +51,7 @@
               <div class="col">
                 <h4>Date</h4>
                 <br />
-                <div id="weather-symbol">*</div>
+                <div id="weather-symbol1">*</div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
@@ -60,7 +60,7 @@
               <div class="col">
                 <h4>Date</h4>
                 <br />
-                <div id="weather-symbol">*</div>
+                <div id="weather-symbol2">*</div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
@@ -69,7 +69,7 @@
               <div class="col">
                 <h4>Date</h4>
                 <br />
-                <div id="weather-symbol">*</div>
+                <div id="weather-symbol3">*</div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
@@ -78,7 +78,7 @@
               <div class="col">
                 <h4>Date</h4>
                 <br />
-                <div id="weather-symbol">*</div>
+                <div id="weather-symbol4">*</div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
@@ -87,7 +87,7 @@
               <div class="col">
                 <h4>Date</h4>
                 <br />
-                <div id="weather-symbol">*</div>
+                <div id="weather-symbol5">*</div>
                 <p>Temp:</p>
                 <p>Humidity:</p>
               </div>
