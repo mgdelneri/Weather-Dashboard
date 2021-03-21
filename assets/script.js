@@ -1,3 +1,4 @@
+// Variables assigned to elements in the DOM
 var input = document.querySelector("input");
 var inputBtn = document.querySelector("#input-btn");
 var citiesBtn = document.querySelector(".cityBtn");
@@ -11,24 +12,39 @@ var secondCityBtn = document.querySelector("#chosen-city2");
 var thirdCityBtn = document.querySelector("#chosen-city3");
 var fourthCityBtn = document.querySelector("#chosen-city4");
 var fifthCityBtn = document.querySelector("#chosen-city5");
+// Variable assigned to the value of the input being searched
 var inputValue = "";
 
+// Call the function that gets item from local storage when page is opened/refreshed
+renderLastInput();
 
+// Event listener attached to the button attached to the input field
 inputBtn.addEventListener("click", function(event) {
+    // Prevent default button behavior
     event.preventDefault();
     inputValue = input.value;
     console.log(inputValue);
+    // Saves input value in local storage
     localStorage.setItem("cityName", inputValue);
+    var lastInput = localStorage.getItem("cityName");
+    firstCityBtn.textContent = lastInput;
 
-
+    // Fetches relevant city data from Open Weather API
     fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432")
         .then (function(response) {
             console.log(response);
         });
 })
 
+// Function that renders the last input searched from local storage
 function renderLastInput() {
+    var lastInput = localStorage.getItem("cityName");
+    
+    if (!lastInput) {
+        return;
+    };
 
+    firstCityBtn.textContent = lastInput;
 }
 
 // TODO: When user searches for city in input field:
