@@ -4,6 +4,7 @@ var input = document.querySelector("input");
 var inputBtn = document.querySelector("#input-btn");
 var citiesBtn = document.querySelector(".cityBtn");
 var currentCity = document.querySelector("#current-city");
+var currentDate = document.querySelector("#current-date");
 var currentTemp = document.querySelector("#current-temp");
 var currentHumidity = document.querySelector("#current-humidity");
 var currentWind = document.querySelector("#current-wind");
@@ -57,13 +58,18 @@ inputBtn.addEventListener("click", function (event) {
       console.log(latitude);
 
       fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
       ).then(function (response) {
         return response.json();
       }).then (function (response) {
         console.log(response)
 
-        currentCity.textContent = inputValue + " " + new Date(response.current.dt);
+        currentCity.textContent = inputValue + response.current.weather.icon;
+        currentDate.textContent = new Date();
+        currentTemp.textContent = "Temperature: " + response.current.temp + "°";
+        currentHumidity.textContent = "Humidity: " + response.current.humidity + "%";
+        currentWind.textContent = "Wind Speed:  " + " mph";
+        currentUV.textContent = "UV Index: " + response.current.uvi 
 
       })
     });
