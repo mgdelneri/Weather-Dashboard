@@ -1,4 +1,5 @@
 // Variables assigned to elements in the DOM
+var form = document.querySelector("form");
 var input = document.querySelector("input");
 var inputBtn = document.querySelector("#input-btn");
 var citiesBtn = document.querySelector(".cityBtn");
@@ -22,21 +23,38 @@ renderLastInput();
 inputBtn.addEventListener("click", function(event) {
     // Prevent default button behavior
     event.preventDefault();
+    
+    // Moves search history down when button is clicked to make room for new input
+    if (firstCityBtn.textContent) {
+        fifthCityBtn.textContent = fourthCityBtn.textContent;
+        fourthCityBtn.textContent = thirdCityBtn.textContent;
+        thirdCityBtn.textContent = secondCityBtn.textContent;
+        secondCityBtn.textContent = firstCityBtn.textContent;
+    };
+
     inputValue = input.value;
-    console.log(inputValue);
-    // Saves input value in local storage
+
+    // Saves input value in local storage and gets input to display in search history
     localStorage.setItem("cityName", inputValue);
     var lastInput = localStorage.getItem("cityName");
     firstCityBtn.textContent = lastInput;
+    // Saves search history in local storage
+    localStorage.setItem("firstBtn", firstCityBtn.textContent);
+    localStorage.setItem("secondBtn", secondCityBtn.textContent);
+    localStorage.setItem("thirdBtn", thirdCityBtn.textContent);
+    localStorage.setItem("fourthBtn", fourthCityBtn.textContent);
+    localStorage.setItem("fifthBtn", fifthCityBtn.textContent);
 
     // Fetches relevant city data from Open Weather API
     fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432")
         .then (function(response) {
             console.log(response);
-        });
+    });
+    // Clears input field after submitting 
+    form.reset();
 })
 
-// Function that renders the last input searched from local storage
+// Function that renders the last input searched from local storage for all of search history
 function renderLastInput() {
     var lastInput = localStorage.getItem("cityName");
     
@@ -45,7 +63,41 @@ function renderLastInput() {
     };
 
     firstCityBtn.textContent = lastInput;
+
+    var lastBtn1 = localStorage.getItem("secondBtn");
+
+    if (!lastBtn1) {
+        return;
+    };
+
+    secondCityBtn.textContent = lastBtn1;
+
+    var lastBtn2 = localStorage.getItem("thirdBtn");
+
+    if (!lastBtn2) {
+        return;
+    };
+
+    thirdCityBtn.textContent = lastBtn2;
+
+    var lastBtn3 = localStorage.getItem("fourthBtn");
+
+    if (!lastBtn3) {
+        return;
+    };
+
+    fourthCityBtn.textContent = lastBtn3;
+
+    var lastBtn4 = localStorage.getItem("fifthBtn");
+
+    if (!lastBtn4) {
+        return;
+    };
+
+    fifthCityBtn.textContent = lastBtn3;
+
 }
+
 
 // TODO: When user searches for city in input field:
     // TODO: When button is pressed:
