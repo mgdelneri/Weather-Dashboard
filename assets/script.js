@@ -6,8 +6,12 @@ var currentTemp = document.querySelector("#current-temp");
 var currentHumidity = document.querySelector("#current-humidity");
 var currentWind = document.querySelector("#current-wind");
 var currentUV = document.querySelector("#current-uv");
+var firstCityBtn = document.querySelector("#chosen-city1");
+var secondCityBtn = document.querySelector("#chosen-city2");
+var thirdCityBtn = document.querySelector("#chosen-city3");
+var fourthCityBtn = document.querySelector("#chosen-city4");
+var fifthCityBtn = document.querySelector("#chosen-city5");
 var inputValue = "";
-
 
 
 inputBtn.addEventListener("click", function(event) {
@@ -20,8 +24,12 @@ inputBtn.addEventListener("click", function(event) {
     fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432")
         .then (function(response) {
             console.log(response);
-        })
+        });
 })
+
+function renderLastInput() {
+
+}
 
 // TODO: When user searches for city in input field:
     // TODO: When button is pressed:
