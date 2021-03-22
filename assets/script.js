@@ -9,6 +9,7 @@ var currentTemp = document.querySelector("#current-temp");
 var currentHumidity = document.querySelector("#current-humidity");
 var currentWind = document.querySelector("#current-wind");
 var currentUV = document.querySelector("#current-uv");
+var uvNumber = document.querySelector("span");
 var firstCityBtn = document.querySelector("#chosen-city1");
 var secondCityBtn = document.querySelector("#chosen-city2");
 var thirdCityBtn = document.querySelector("#chosen-city3");
@@ -96,19 +97,59 @@ inputBtn.addEventListener("click", function (event) {
             "Humidity: " + response.current.humidity + "%";
           currentWind.textContent =
             "Wind Speed:  " + response.current.wind_speed + " mph";
-          currentUV.textContent = "UV Index: " + response.current.uvi;
+          uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          date1.textContent = Date(response.daily[1][1]);
+          
+          // Day 1 
+          // date1.textContent = // Date(response.daily[1][1]);
+          // icon1.textContent =
+          // temp1.textContent = 
+          // humidity1.textContent =
 
-          /* var uvIndex = response.current.uvi;
+          // Day 2
+          // date2.textContent =
+          // icon2.textContent = 
+          // temp2.textContent = 
+          // humidity2.textContent =
 
-        if (uvIndex.value < 3) {
-            currentUV.setAttribute("background-color", "green");
-        } */
+          // Day 3
+          // date3.textContent =
+          // icon3.textContent =
+          // temp3.textContent =
+          // humidity3.textContent =
+
+          // Day 4
+          // date4.textContent = 
+          // icon4.textContent = 
+          // temp4.textContent = 
+          // humidity4.textContent = 
+
+          // Day 5
+          // date5.textContent = 
+          // icon5.textContent = 
+          // temp5.textContent =
+          // himidity5.textContent = 
+
+          // Change background of current UV Index according to value
+          if (response.current.uvi < 3) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: green; color: ivory"
+            );
+          } else if (response.current.uvi >= 3 && response.current.uvi < 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: yellow; color: rgb(152, 152, 38)"
+            );
+          } else if (response.current.uvi >= 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: red; color: ivory"
+            );
+          }
         });
     });
-
   // Clears input field after submitting
   form.reset();
 });
@@ -148,16 +189,27 @@ firstCityBtn.addEventListener("click", function () {
             "Humidity: " + response.current.humidity + "%";
           currentWind.textContent =
             "Wind Speed:  " + response.current.wind_speed + " mph";
-          currentUV.textContent = "UV Index: " + response.current.uvi;
+          uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
           date1.textContent = Date(response.daily[1][1]);
-          
-          // Change background of current UV Index according to value
-          var uvIndex = response.current.uvi;
 
-          if (uvIndex.value < 3) {
-            currentUV.setAttribute("background-color", "green");
+          // Change background of current UV Index according to value
+          if (response.current.uvi < 3) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: green; color: ivory"
+            );
+          } else if (response.current.uvi >= 3 && response.current.uvi < 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: yellow; color: rgb(152, 152, 38)"
+            );
+          } else if (response.current.uvi >= 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: red; color: ivory"
+            );
           }
         });
     });
@@ -196,16 +248,28 @@ secondCityBtn.addEventListener("click", function () {
             "Humidity: " + response.current.humidity + "%";
           currentWind.textContent =
             "Wind Speed:  " + response.current.wind_speed + " mph";
-          currentUV.textContent = "UV Index: " + response.current.uvi;
+          uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
           date1.textContent = Date(response.daily[1][1]);
 
-          /* var uvIndex = response.current.uvi;
-  
-          if (uvIndex.value < 3) {
-              currentUV.setAttribute("background-color", "green");
-          } */
+          // Change background of current UV Index according to value
+          if (response.current.uvi < 3) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: green; color: ivory"
+            );
+          } else if (response.current.uvi >= 3 && response.current.uvi < 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: yellow; color: rgb(152, 152, 38)"
+            );
+          } else if (response.current.uvi >= 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: red; color: ivory"
+            );
+          }
         });
     });
 });
@@ -243,16 +307,28 @@ thirdCityBtn.addEventListener("click", function () {
             "Humidity: " + response.current.humidity + "%";
           currentWind.textContent =
             "Wind Speed:  " + response.current.wind_speed + " mph";
-          currentUV.textContent = "UV Index: " + response.current.uvi;
+          uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
           date1.textContent = Date(response.daily[1][1]);
 
-          /* var uvIndex = response.current.uvi;
-  
-          if (uvIndex.value < 3) {
-              currentUV.setAttribute("background-color", "green");
-          } */
+          // Change background of current UV Index according to value
+          if (response.current.uvi < 3) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: green; color: ivory"
+            );
+          } else if (response.current.uvi >= 3 && response.current.uvi < 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: yellow; color: rgb(152, 152, 38)"
+            );
+          } else if (response.current.uvi >= 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: red; color: ivory"
+            );
+          }
         });
     });
 });
@@ -290,16 +366,28 @@ fourthCityBtn.addEventListener("click", function () {
             "Humidity: " + response.current.humidity + "%";
           currentWind.textContent =
             "Wind Speed:  " + response.current.wind_speed + " mph";
-          currentUV.textContent = "UV Index: " + response.current.uvi;
+          uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
           date1.textContent = Date(response.daily[1][1]);
 
-          /* var uvIndex = response.current.uvi;
-  
-          if (uvIndex.value < 3) {
-              currentUV.setAttribute("background-color", "green");
-          } */
+          // Change background of current UV Index according to value
+          if (response.current.uvi < 3) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: green; color: ivory"
+            );
+          } else if (response.current.uvi >= 3 && response.current.uvi < 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: yellow; color: rgb(152, 152, 38)"
+            );
+          } else if (response.current.uvi >= 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: red; color: ivory"
+            );
+          }
         });
     });
 });
@@ -337,16 +425,28 @@ fifthCityBtn.addEventListener("click", function () {
             "Humidity: " + response.current.humidity + "%";
           currentWind.textContent =
             "Wind Speed:  " + response.current.wind_speed + " mph";
-          currentUV.textContent = "UV Index: " + response.current.uvi;
+          uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
           date1.textContent = Date(response.daily[1][1]);
 
-          /* var uvIndex = response.current.uvi;
-  
-          if (uvIndex.value < 3) {
-              currentUV.setAttribute("background-color", "green");
-          } */
+          // Change background of current UV Index according to value
+          if (response.current.uvi < 3) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: green; color: ivory"
+            );
+          } else if (response.current.uvi >= 3 && response.current.uvi < 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: yellow; color: rgb(152, 152, 38)"
+            );
+          } else if (response.current.uvi >= 8) {
+            uvNumber.setAttribute(
+              "style",
+              "background-color: red; color: ivory"
+            );
+          }
         });
     });
 });
