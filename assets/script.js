@@ -4,12 +4,13 @@ var input = document.querySelector("input");
 var inputBtn = document.querySelector("#input-btn");
 var citiesBtn = document.querySelector(".cityBtn");
 var currentCity = document.querySelector("#current-city");
+var imgCurrent = document.querySelector("#current-icon");
 var currentDate = document.querySelector("#current-date");
 var currentTemp = document.querySelector("#current-temp");
 var currentHumidity = document.querySelector("#current-humidity");
 var currentWind = document.querySelector("#current-wind");
 var currentUV = document.querySelector("#current-uv");
-var uvNumber = document.querySelector("span");
+var uvNumber = document.querySelector("#uvSpan");
 var firstCityBtn = document.querySelector("#chosen-city1");
 var secondCityBtn = document.querySelector("#chosen-city2");
 var thirdCityBtn = document.querySelector("#chosen-city3");
@@ -88,9 +89,12 @@ inputBtn.addEventListener("click", function (event) {
         .then(function (response) {
           console.log(response);
           // Attach data from API to current weather elements
-          currentCity.textContent =
-            inputValue + " " + response.current.weather[0].icon;
-          currentDate.textContent = new Date();
+          currentCity.textContent = inputValue + " ";
+          imgCurrent.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.current.weather[0].icon}@2x.png`
+          );
+          currentDate.textContent = moment().format("MMMM Do YYYY");
           currentTemp.textContent =
             "Temperature: " + response.current.temp + "°";
           currentHumidity.textContent =
@@ -100,36 +104,56 @@ inputBtn.addEventListener("click", function (event) {
           uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          
-          // Day 1 
-          // date1.textContent = // Date(response.daily[1][1]);
-          // icon1.textContent =
-          // temp1.textContent = 
-          // humidity1.textContent =
+
+          // Day 1
+          date1.textContent = moment().add(1, "days").format("MMMM Do YYYY");
+          icon1.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[1].weather[0].icon}@2x.png`
+          );
+          temp1.textContent = "Temp: " + response.daily[1].temp.day + "°";
+          humidity1.textContent =
+            "Humidity: " + response.daily[1].humidity + "%";
 
           // Day 2
-          // date2.textContent =
-          // icon2.textContent = 
-          // temp2.textContent = 
-          // humidity2.textContent =
+          date2.textContent = moment().add(2, "days").format("MMMM Do YYYY");
+          icon2.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[2].weather[0].icon}@2x.png`
+          );
+          temp2.textContent = "Temp: " + response.daily[2].temp.day + "°";
+          humidity2.textContent =
+            "Humidity: " + response.daily[2].humidity + "%";
 
           // Day 3
-          // date3.textContent =
-          // icon3.textContent =
-          // temp3.textContent =
-          // humidity3.textContent =
+          date3.textContent = moment().add(3, "days").format("MMMM Do YYYY");
+          icon3.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[3].weather[0].icon}@2x.png`
+          );
+          temp3.textContent = "Temp: " + response.daily[3].temp.day + "°";
+          humidity3.textContent =
+            "Humidity: " + response.daily[3].humidity + "%";
 
           // Day 4
-          // date4.textContent = 
-          // icon4.textContent = 
-          // temp4.textContent = 
-          // humidity4.textContent = 
+          date4.textContent = moment().add(4, "days").format("MMMM Do YYYY");
+          icon4.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[4].weather[0].icon}@2x.png`
+          );
+          temp4.textContent = "Temp: " + response.daily[4].temp.day + "°";
+          humidity4.textContent =
+            "Humidity: " + response.daily[4].humidity + "%";
 
           // Day 5
-          // date5.textContent = 
-          // icon5.textContent = 
-          // temp5.textContent =
-          // himidity5.textContent = 
+          date5.textContent = moment().add(5, "days").format("MMMM Do YYYY");
+          icon5.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[5].weather[0].icon}@2x.png`
+          );
+          temp5.textContent = "Temp: " + response.daily[5].temp.day + "°";
+          humidity5.textContent =
+            "Humidity: " + response.daily[5].humidity + "%";
 
           // Change background of current UV Index according to value
           if (response.current.uvi < 3) {
@@ -178,11 +202,13 @@ firstCityBtn.addEventListener("click", function () {
           return response.json();
         })
         .then(function (response) {
-          console.log(response);
           // Attach data from API to current weather elements
-          currentCity.textContent =
-            firstBtnTxt + " " + response.current.weather[0].icon;
-          currentDate.textContent = new Date();
+          currentCity.textContent = firstBtnTxt + " ";
+          imgCurrent.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.current.weather[0].icon}@2x.png`
+          );
+          currentDate.textContent = moment().format("MMMM Do YYYY");
           currentTemp.textContent =
             "Temperature: " + response.current.temp + "°";
           currentHumidity.textContent =
@@ -192,7 +218,56 @@ firstCityBtn.addEventListener("click", function () {
           uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          date1.textContent = Date(response.daily[1][1]);
+
+          // Day 1
+          date1.textContent = moment().add(1, "days").format("MMMM Do YYYY");
+          icon1.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[1].weather[0].icon}@2x.png`
+          );
+          temp1.textContent = "Temp: " + response.daily[1].temp.day + "°";
+          humidity1.textContent =
+            "Humidity: " + response.daily[1].humidity + "%";
+
+          // Day 2
+          date2.textContent = moment().add(2, "days").format("MMMM Do YYYY");
+          icon2.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[2].weather[0].icon}@2x.png`
+          );
+          temp2.textContent = "Temp: " + response.daily[2].temp.day + "°";
+          humidity2.textContent =
+            "Humidity: " + response.daily[2].humidity + "%";
+
+          // Day 3
+          date3.textContent = moment().add(3, "days").format("MMMM Do YYYY");
+          icon3.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[3].weather[0].icon}@2x.png`
+          );
+          temp3.textContent = "Temp: " + response.daily[3].temp.day + "°";
+          humidity3.textContent =
+            "Humidity: " + response.daily[3].humidity + "%";
+
+          // Day 4
+          date4.textContent = moment().add(4, "days").format("MMMM Do YYYY");
+          icon4.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[4].weather[0].icon}@2x.png`
+          );
+          temp4.textContent = "Temp: " + response.daily[4].temp.day + "°";
+          humidity4.textContent =
+            "Humidity: " + response.daily[4].humidity + "%";
+
+          // Day 5
+          date5.textContent = moment().add(5, "days").format("MMMM Do YYYY");
+          icon5.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[5].weather[0].icon}@2x.png`
+          );
+          temp5.textContent = "Temp: " + response.daily[5].temp.day + "°";
+          humidity5.textContent =
+            "Humidity: " + response.daily[5].humidity + "%";
 
           // Change background of current UV Index according to value
           if (response.current.uvi < 3) {
@@ -239,9 +314,12 @@ secondCityBtn.addEventListener("click", function () {
         .then(function (response) {
           console.log(response);
           // Attach data from API to current weather elements
-          currentCity.textContent =
-            secondBtnTxt + " " + response.current.weather[0].icon;
-          currentDate.textContent = new Date();
+          currentCity.textContent = secondBtnTxt + " ";
+          imgCurrent.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.current.weather[0].icon}@2x.png`
+          );
+          currentDate.textContent = moment().format("MMMM Do YYYY");
           currentTemp.textContent =
             "Temperature: " + response.current.temp + "°";
           currentHumidity.textContent =
@@ -251,7 +329,56 @@ secondCityBtn.addEventListener("click", function () {
           uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          date1.textContent = Date(response.daily[1][1]);
+
+          // Day 1
+          date1.textContent = moment().add(1, "days").format("MMMM Do YYYY");
+          icon1.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[1].weather[0].icon}@2x.png`
+          );
+          temp1.textContent = "Temp: " + response.daily[1].temp.day + "°";
+          humidity1.textContent =
+            "Humidity: " + response.daily[1].humidity + "%";
+
+          // Day 2
+          date2.textContent = moment().add(2, "days").format("MMMM Do YYYY");
+          icon2.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[2].weather[0].icon}@2x.png`
+          );
+          temp2.textContent = "Temp: " + response.daily[2].temp.day + "°";
+          humidity2.textContent =
+            "Humidity: " + response.daily[2].humidity + "%";
+
+          // Day 3
+          date3.textContent = moment().add(3, "days").format("MMMM Do YYYY");
+          icon3.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[3].weather[0].icon}@2x.png`
+          );
+          temp3.textContent = "Temp: " + response.daily[3].temp.day + "°";
+          humidity3.textContent =
+            "Humidity: " + response.daily[3].humidity + "%";
+
+          // Day 4
+          date4.textContent = moment().add(4, "days").format("MMMM Do YYYY");
+          icon4.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[4].weather[0].icon}@2x.png`
+          );
+          temp4.textContent = "Temp: " + response.daily[4].temp.day + "°";
+          humidity4.textContent =
+            "Humidity: " + response.daily[4].humidity + "%";
+
+          // Day 5
+          date5.textContent = moment().add(5, "days").format("MMMM Do YYYY");
+          icon5.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[5].weather[0].icon}@2x.png`
+          );
+          temp5.textContent = "Temp: " + response.daily[5].temp.day + "°";
+          humidity5.textContent =
+            "Humidity: " + response.daily[5].humidity + "%";
 
           // Change background of current UV Index according to value
           if (response.current.uvi < 3) {
@@ -287,7 +414,6 @@ thirdCityBtn.addEventListener("click", function () {
     .then(function (response) {
       var longitude = response.coord.lon;
       var latitude = response.coord.lat;
-      console.log(latitude);
 
       fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
@@ -296,11 +422,14 @@ thirdCityBtn.addEventListener("click", function () {
           return response.json();
         })
         .then(function (response) {
-          console.log(response);
           // Attach data from API to current weather elements
-          currentCity.textContent =
-            thirdBtnTxt + " " + response.current.weather[0].icon;
-          currentDate.textContent = new Date();
+          currentCity.textContent = thirdBtnTxt + " ";
+          imgCurrent.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.current.weather[0].icon}@2x.png`
+          );
+          currentDate.textContent = moment().format("MMMM Do YYYY");
+
           currentTemp.textContent =
             "Temperature: " + response.current.temp + "°";
           currentHumidity.textContent =
@@ -310,7 +439,55 @@ thirdCityBtn.addEventListener("click", function () {
           uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          date1.textContent = Date(response.daily[1][1]);
+          // Day 1
+          date1.textContent = moment().add(1, "days").format("MMMM Do YYYY");
+          icon1.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[1].weather[0].icon}@2x.png`
+          );
+          temp1.textContent = "Temp: " + response.daily[1].temp.day + "°";
+          humidity1.textContent =
+            "Humidity: " + response.daily[1].humidity + "%";
+
+          // Day 2
+          date2.textContent = moment().add(2, "days").format("MMMM Do YYYY");
+          icon2.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[2].weather[0].icon}@2x.png`
+          );
+          temp2.textContent = "Temp: " + response.daily[2].temp.day + "°";
+          humidity2.textContent =
+            "Humidity: " + response.daily[2].humidity + "%";
+
+          // Day 3
+          date3.textContent = moment().add(3, "days").format("MMMM Do YYYY");
+          icon3.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[3].weather[0].icon}@2x.png`
+          );
+          temp3.textContent = "Temp: " + response.daily[3].temp.day + "°";
+          humidity3.textContent =
+            "Humidity: " + response.daily[3].humidity + "%";
+
+          // Day 4
+          date4.textContent = moment().add(4, "days").format("MMMM Do YYYY");
+          icon4.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[4].weather[0].icon}@2x.png`
+          );
+          temp4.textContent = "Temp: " + response.daily[4].temp.day + "°";
+          humidity4.textContent =
+            "Humidity: " + response.daily[4].humidity + "%";
+
+          // Day 5
+          date5.textContent = moment().add(5, "days").format("MMMM Do YYYY");
+          icon5.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[5].weather[0].icon}@2x.png`
+          );
+          temp5.textContent = "Temp: " + response.daily[5].temp.day + "°";
+          humidity5.textContent =
+            "Humidity: " + response.daily[5].humidity + "%";
 
           // Change background of current UV Index according to value
           if (response.current.uvi < 3) {
@@ -346,7 +523,6 @@ fourthCityBtn.addEventListener("click", function () {
     .then(function (response) {
       var longitude = response.coord.lon;
       var latitude = response.coord.lat;
-      console.log(latitude);
 
       fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
@@ -355,11 +531,13 @@ fourthCityBtn.addEventListener("click", function () {
           return response.json();
         })
         .then(function (response) {
-          console.log(response);
           // Attach data from API to current weather elements
-          currentCity.textContent =
-            fourthBtnTxt + " " + response.current.weather[0].icon;
-          currentDate.textContent = new Date();
+          currentCity.textContent = fourthBtnTxt + " ";
+          imgCurrent.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.current.weather[0].icon}@2x.png`
+          );
+          currentDate.textContent = moment().format("MMMM Do YYYY");
           currentTemp.textContent =
             "Temperature: " + response.current.temp + "°";
           currentHumidity.textContent =
@@ -369,7 +547,55 @@ fourthCityBtn.addEventListener("click", function () {
           uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          date1.textContent = Date(response.daily[1][1]);
+          // Day 1
+          date1.textContent = moment().add(1, "days").format("MMMM Do YYYY");
+          icon1.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[1].weather[0].icon}@2x.png`
+          );
+          temp1.textContent = "Temp: " + response.daily[1].temp.day + "°";
+          humidity1.textContent =
+            "Humidity: " + response.daily[1].humidity + "%";
+
+          // Day 2
+          date2.textContent = moment().add(2, "days").format("MMMM Do YYYY");
+          icon2.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[2].weather[0].icon}@2x.png`
+          );
+          temp2.textContent = "Temp: " + response.daily[2].temp.day + "°";
+          humidity2.textContent =
+            "Humidity: " + response.daily[2].humidity + "%";
+
+          // Day 3
+          date3.textContent = moment().add(3, "days").format("MMMM Do YYYY");
+          icon3.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[3].weather[0].icon}@2x.png`
+          );
+          temp3.textContent = "Temp: " + response.daily[3].temp.day + "°";
+          humidity3.textContent =
+            "Humidity: " + response.daily[3].humidity + "%";
+
+          // Day 4
+          date4.textContent = moment().add(4, "days").format("MMMM Do YYYY");
+          icon4.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[4].weather[0].icon}@2x.png`
+          );
+          temp4.textContent = "Temp: " + response.daily[4].temp.day + "°";
+          humidity4.textContent =
+            "Humidity: " + response.daily[4].humidity + "%";
+
+          // Day 5
+          date5.textContent = moment().add(5, "days").format("MMMM Do YYYY");
+          icon5.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[5].weather[0].icon}@2x.png`
+          );
+          temp5.textContent = "Temp: " + response.daily[5].temp.day + "°";
+          humidity5.textContent =
+            "Humidity: " + response.daily[5].humidity + "%";
 
           // Change background of current UV Index according to value
           if (response.current.uvi < 3) {
@@ -405,7 +631,6 @@ fifthCityBtn.addEventListener("click", function () {
     .then(function (response) {
       var longitude = response.coord.lon;
       var latitude = response.coord.lat;
-      console.log(latitude);
 
       fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
@@ -414,11 +639,13 @@ fifthCityBtn.addEventListener("click", function () {
           return response.json();
         })
         .then(function (response) {
-          console.log(response);
           // Attach data from API to current weather elements
-          currentCity.textContent =
-            fifthBtnTxt + " " + response.current.weather[0].icon;
-          currentDate.textContent = new Date();
+          currentCity.textContent = fifthBtnTxt + " ";
+          imgCurrent.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.current.weather[0].icon}@2x.png`
+          );
+          currentDate.textContent = moment().format("MMMM Do YYYY");
           currentTemp.textContent =
             "Temperature: " + response.current.temp + "°";
           currentHumidity.textContent =
@@ -428,7 +655,55 @@ fifthCityBtn.addEventListener("click", function () {
           uvNumber.textContent = response.current.uvi;
 
           // Attach data from API to 5-day forecast elements
-          date1.textContent = Date(response.daily[1][1]);
+          // Day 1
+          date1.textContent = moment().add(1, "days").format("MMMM Do YYYY");
+          icon1.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[1].weather[0].icon}@2x.png`
+          );
+          temp1.textContent = "Temp: " + response.daily[1].temp.day + "°";
+          humidity1.textContent =
+            "Humidity: " + response.daily[1].humidity + "%";
+
+          // Day 2
+          date2.textContent = moment().add(2, "days").format("MMMM Do YYYY");
+          icon2.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[2].weather[0].icon}@2x.png`
+          );
+          temp2.textContent = "Temp: " + response.daily[2].temp.day + "°";
+          humidity2.textContent =
+            "Humidity: " + response.daily[2].humidity + "%";
+
+          // Day 3
+          date3.textContent = moment().add(3, "days").format("MMMM Do YYYY");
+          icon3.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[3].weather[0].icon}@2x.png`
+          );
+          temp3.textContent = "Temp: " + response.daily[3].temp.day + "°";
+          humidity3.textContent =
+            "Humidity: " + response.daily[3].humidity + "%";
+
+          // Day 4
+          date4.textContent = moment().add(4, "days").format("MMMM Do YYYY");
+          icon4.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[4].weather[0].icon}@2x.png`
+          );
+          temp4.textContent = "Temp: " + response.daily[4].temp.day + "°";
+          humidity4.textContent =
+            "Humidity: " + response.daily[4].humidity + "%";
+
+          // Day 5
+          date5.textContent = moment().add(5, "days").format("MMMM Do YYYY");
+          icon5.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.daily[5].weather[0].icon}@2x.png`
+          );
+          temp5.textContent = "Temp: " + response.daily[5].temp.day + "°";
+          humidity5.textContent =
+            "Humidity: " + response.daily[5].humidity + "%";
 
           // Change background of current UV Index according to value
           if (response.current.uvi < 3) {

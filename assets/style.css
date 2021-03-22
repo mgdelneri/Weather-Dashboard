@@ -31,7 +31,7 @@ main {
 
 .search {
   padding: 15px;
-  margin: 30px;
+  margin: 20px;
   margin-top: 40px;
   border: 8px solid var(--pop-color);
   border-radius: 25px;
@@ -50,7 +50,7 @@ input {
 #input-btn {
   width: 30px;
   border-color: var(--back-color);
-  background-color: var(--subtle-color);
+  background-color: rgb(165, 178, 196);
 }
 
 .cityBtn {
@@ -60,8 +60,9 @@ input {
 }
 
 .results {
-  padding: 20px;
+  padding: 15px;
   margin: 30px;
+  margin-left: 20px;
   margin-top: 40px;
   width: 100%;
   border: 8px solid var(--pop-color);
@@ -82,6 +83,7 @@ input {
 .current-weather {
   padding: 15px;
   margin: 20px;
+  text-align: center;
 }
 
 .current-weather p {
@@ -89,17 +91,14 @@ input {
   margin-bottom: 5px;
 }
 
-#current-uv {
-    width: 170px;
-}
-
 .forecast {
   padding: 15px;
-  margin: 20px;
+  margin: 15px;
 }
 
 .forecast h2 {
     color: var(--back-color);
+    padding-left: 10px;
 }
 
 #box {
@@ -109,4 +108,5 @@ input {
   border: 3px solid var(--back-color);
   border-radius: 25px;
   font-size: large;
+  text-align: center;
 }

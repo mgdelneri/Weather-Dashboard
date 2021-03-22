@@ -38,13 +38,13 @@
 
       <section class="results">
         <div class="current-weather">
-          <h2 id="current-city">City</h2>
+          <h2><span id="current-city"></span><img id="current-icon"/></h2>
           <h1 id="current-date">Date</h1>
           <br />
           <p id="current-temp">Temperature:</p>
           <p id="current-humidity">Humidity:</p>
           <p id="current-wind">Wind Speed:</p>
-          <p id="current-uv">UV Index: <span></span></p>
+          <p id="current-uv">UV Index: <span id="uvSpan"></span></p>
         </div>
         <div class="forecast">
           <h2>5-Day Forecast:</h2>
@@ -55,8 +55,7 @@
             <div class="row" id="box">
               <div class="col">
                 <h4 id="date1">Date</h4>
-                <br />
-                <div id="weather-symbol1"></div>
+                <img id="weather-symbol1"/>
                 <p id="temp1">Temp</p>
                 <p id="humid1">Humidity</p>
               </div>
@@ -64,8 +63,7 @@
             <div class="row" id="box">
               <div class="col">
                 <h4 id="date2">Date</h4>
-                <br />
-                <div id="weather-symbol2"></div>
+                <img id="weather-symbol2"/>
                 <p id="temp2">Temp</p>
                 <p id="humid2">Humidity</p>
               </div>
@@ -73,8 +71,7 @@
             <div class="row" id="box">
               <div class="col">
                 <h4 id="date3">Date</h4>
-                <br />
-                <div id="weather-symbol3"></div>
+                <img id="weather-symbol3"/>
                 <p id="temp3">Temp</p>
                 <p id="humid3">Humidity</p>
               </div>
@@ -82,8 +79,7 @@
             <div class="row" id="box">
               <div class="col">
                 <h4 id="date4">Date</h4>
-                <br />
-                <div id="weather-symbol4"></div>
+                <img id="weather-symbol4"/>
                 <p id="temp4">Temp</p>
                 <p id="humid4">Humidity</p>
               </div>
@@ -91,8 +87,7 @@
             <div class="row" id="box">
               <div class="col">
                 <h4 id="date5">Date</h4>
-                <br />
-                <div id="weather-symbol5"></div>
+                <img id="weather-symbol5"/>
                 <p id="temp5">Temp</p>
                 <p id="humid5">Humidity</p>
               </div>
@@ -103,6 +98,7 @@
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script text="text/javascript" src="./assets/script.js"></script>
   </body>
 </html>
