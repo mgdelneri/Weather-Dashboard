@@ -80,29 +80,275 @@ inputBtn.addEventListener("click", function (event) {
 
       fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
-      ).then(function (response) {
-        return response.json();
-      }).then (function (response) {
-        console.log(response)
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          // Attach data from API to current weather elements
+          currentCity.textContent =
+            inputValue + " " + response.current.weather[0].icon;
+          currentDate.textContent = new Date();
+          currentTemp.textContent =
+            "Temperature: " + response.current.temp + "°";
+          currentHumidity.textContent =
+            "Humidity: " + response.current.humidity + "%";
+          currentWind.textContent =
+            "Wind Speed:  " + response.current.wind_speed + " mph";
+          currentUV.textContent = "UV Index: " + response.current.uvi;
 
-        currentCity.textContent = inputValue + " " + response.current.weather.icon;
-        currentDate.textContent = new Date();
-        currentTemp.textContent = "Temperature: " + response.current.temp + "°";
-        currentHumidity.textContent = "Humidity: " + response.current.humidity + "%";
-        currentWind.textContent = "Wind Speed:  " + " mph";
-        currentUV.textContent = "UV Index: " + response.current.uvi 
+          // Attach data from API to 5-day forecast elements
+          date1.textContent = Date(response.daily[1][1]);
 
-        /* var uvIndex = response.current.uvi;
+          /* var uvIndex = response.current.uvi;
 
         if (uvIndex.value < 3) {
             currentUV.setAttribute("background-color", "green");
         } */
-
-      })
+        });
     });
 
   // Clears input field after submitting
   form.reset();
+});
+
+// Add event listeners to all 5 buttons in search history
+
+// First button in search history
+firstCityBtn.addEventListener("click", function () {
+  var firstBtnTxt = firstCityBtn.textContent;
+  // Use fetch to call API data from Open Weather API
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${firstBtnTxt}&appid=e855ba782204791deaddac674c970432`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+      console.log(latitude);
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          // Attach data from API to current weather elements
+          currentCity.textContent =
+            firstBtnTxt + " " + response.current.weather[0].icon;
+          currentDate.textContent = new Date();
+          currentTemp.textContent =
+            "Temperature: " + response.current.temp + "°";
+          currentHumidity.textContent =
+            "Humidity: " + response.current.humidity + "%";
+          currentWind.textContent =
+            "Wind Speed:  " + response.current.wind_speed + " mph";
+          currentUV.textContent = "UV Index: " + response.current.uvi;
+
+          // Attach data from API to 5-day forecast elements
+          date1.textContent = Date(response.daily[1][1]);
+          
+          // Change background of current UV Index according to value
+          var uvIndex = response.current.uvi;
+
+          if (uvIndex.value < 3) {
+            currentUV.setAttribute("background-color", "green");
+          }
+        });
+    });
+});
+
+// Second button in search history
+secondCityBtn.addEventListener("click", function () {
+  var secondBtnTxt = secondCityBtn.textContent;
+  // Use fetch to call API data from Open Weather API
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${secondBtnTxt}&appid=e855ba782204791deaddac674c970432`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+      console.log(latitude);
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          // Attach data from API to current weather elements
+          currentCity.textContent =
+            secondBtnTxt + " " + response.current.weather[0].icon;
+          currentDate.textContent = new Date();
+          currentTemp.textContent =
+            "Temperature: " + response.current.temp + "°";
+          currentHumidity.textContent =
+            "Humidity: " + response.current.humidity + "%";
+          currentWind.textContent =
+            "Wind Speed:  " + response.current.wind_speed + " mph";
+          currentUV.textContent = "UV Index: " + response.current.uvi;
+
+          // Attach data from API to 5-day forecast elements
+          date1.textContent = Date(response.daily[1][1]);
+
+          /* var uvIndex = response.current.uvi;
+  
+          if (uvIndex.value < 3) {
+              currentUV.setAttribute("background-color", "green");
+          } */
+        });
+    });
+});
+
+// Third button in search history
+thirdCityBtn.addEventListener("click", function () {
+  var thirdBtnTxt = thirdCityBtn.textContent;
+  // Use fetch to call API data from Open Weather API
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${thirdBtnTxt}&appid=e855ba782204791deaddac674c970432`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+      console.log(latitude);
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          // Attach data from API to current weather elements
+          currentCity.textContent =
+            thirdBtnTxt + " " + response.current.weather[0].icon;
+          currentDate.textContent = new Date();
+          currentTemp.textContent =
+            "Temperature: " + response.current.temp + "°";
+          currentHumidity.textContent =
+            "Humidity: " + response.current.humidity + "%";
+          currentWind.textContent =
+            "Wind Speed:  " + response.current.wind_speed + " mph";
+          currentUV.textContent = "UV Index: " + response.current.uvi;
+
+          // Attach data from API to 5-day forecast elements
+          date1.textContent = Date(response.daily[1][1]);
+
+          /* var uvIndex = response.current.uvi;
+  
+          if (uvIndex.value < 3) {
+              currentUV.setAttribute("background-color", "green");
+          } */
+        });
+    });
+});
+
+// Fourth button in search history
+fourthCityBtn.addEventListener("click", function () {
+  var fourthBtnTxt = fourthCityBtn.textContent;
+  // Use fetch to call API data from Open Weather API
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${fourthBtnTxt}&appid=e855ba782204791deaddac674c970432`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+      console.log(latitude);
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          // Attach data from API to current weather elements
+          currentCity.textContent =
+            fourthBtnTxt + " " + response.current.weather[0].icon;
+          currentDate.textContent = new Date();
+          currentTemp.textContent =
+            "Temperature: " + response.current.temp + "°";
+          currentHumidity.textContent =
+            "Humidity: " + response.current.humidity + "%";
+          currentWind.textContent =
+            "Wind Speed:  " + response.current.wind_speed + " mph";
+          currentUV.textContent = "UV Index: " + response.current.uvi;
+
+          // Attach data from API to 5-day forecast elements
+          date1.textContent = Date(response.daily[1][1]);
+
+          /* var uvIndex = response.current.uvi;
+  
+          if (uvIndex.value < 3) {
+              currentUV.setAttribute("background-color", "green");
+          } */
+        });
+    });
+});
+
+// Fifth button in search history
+fifthCityBtn.addEventListener("click", function () {
+  var fifthBtnTxt = fifthCityBtn.textContent;
+  // Use fetch to call API data from Open Weather API
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${fifthBtnTxt}&appid=e855ba782204791deaddac674c970432`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      var longitude = response.coord.lon;
+      var latitude = response.coord.lat;
+      console.log(latitude);
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          // Attach data from API to current weather elements
+          currentCity.textContent =
+            fifthBtnTxt + " " + response.current.weather[0].icon;
+          currentDate.textContent = new Date();
+          currentTemp.textContent =
+            "Temperature: " + response.current.temp + "°";
+          currentHumidity.textContent =
+            "Humidity: " + response.current.humidity + "%";
+          currentWind.textContent =
+            "Wind Speed:  " + response.current.wind_speed + " mph";
+          currentUV.textContent = "UV Index: " + response.current.uvi;
+
+          // Attach data from API to 5-day forecast elements
+          date1.textContent = Date(response.daily[1][1]);
+
+          /* var uvIndex = response.current.uvi;
+  
+          if (uvIndex.value < 3) {
+              currentUV.setAttribute("background-color", "green");
+          } */
+        });
+    });
 });
 
 // Function that renders the last input searched from local storage for all of search history
