@@ -14,6 +14,26 @@ var secondCityBtn = document.querySelector("#chosen-city2");
 var thirdCityBtn = document.querySelector("#chosen-city3");
 var fourthCityBtn = document.querySelector("#chosen-city4");
 var fifthCityBtn = document.querySelector("#chosen-city5");
+var date1 = document.querySelector("#date1");
+var date2 = document.querySelector("#date2");
+var date3 = document.querySelector("#date3");
+var date4 = document.querySelector("#date4");
+var date5 = document.querySelector("#date5");
+var icon1 = document.querySelector("#weather-symbol1");
+var icon2 = document.querySelector("#weather-symbol2");
+var icon3 = document.querySelector("#weather-symbol3");
+var icon4 = document.querySelector("#weather-symbol4");
+var icon5 = document.querySelector("#weather-symbol5");
+var temp1 = document.querySelector("#temp1");
+var temp2 = document.querySelector("#temp2");
+var temp3 = document.querySelector("#temp3");
+var temp4 = document.querySelector("#temp4");
+var temp5 = document.querySelector("#temp5");
+var humidity1 = document.querySelector("#humid1");
+var humidity2 = document.querySelector("#humid2");
+var humidity3 = document.querySelector("#humid3");
+var humidity4 = document.querySelector("#humid4");
+var humidity5 = document.querySelector("#humid5");
 // Variable assigned to the value of the input being searched
 var inputValue = "";
 
