@@ -46,6 +46,7 @@ inputBtn.addEventListener("click", function (event) {
   localStorage.setItem("fourthBtn", fourthCityBtn.textContent);
   localStorage.setItem("fifthBtn", fifthCityBtn.textContent);
 
+  // Use fetch to call API data from Open Weather API
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=e855ba782204791deaddac674c970432`
   )
@@ -64,12 +65,18 @@ inputBtn.addEventListener("click", function (event) {
       }).then (function (response) {
         console.log(response)
 
-        currentCity.textContent = inputValue + response.current.weather.icon;
+        currentCity.textContent = inputValue + " " + response.current.weather.icon;
         currentDate.textContent = new Date();
         currentTemp.textContent = "Temperature: " + response.current.temp + "°";
         currentHumidity.textContent = "Humidity: " + response.current.humidity + "%";
         currentWind.textContent = "Wind Speed:  " + " mph";
         currentUV.textContent = "UV Index: " + response.current.uvi 
+
+        /* var uvIndex = response.current.uvi;
+
+        if (uvIndex.value < 3) {
+            currentUV.setAttribute("background-color", "green");
+        } */
 
       })
     });

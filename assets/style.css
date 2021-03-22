@@ -50,6 +50,7 @@ input {
 #input-btn {
   width: 30px;
   border-color: var(--back-color);
+  background-color: var(--subtle-color);
 }
 
 .cityBtn {
@@ -71,9 +72,11 @@ input {
     font-size: 50px;
 }
 
-.results h1 {
+#current-date {
     font-size: 40px;
     color: var(--back-color);
+    padding: 0;
+    margin-top: 10px;
 }
 
 .current-weather {
@@ -84,6 +87,10 @@ input {
 .current-weather p {
   font-size: 25px;
   margin-bottom: 5px;
+}
+
+#current-uv {
+    width: 165px;
 }
 
 .forecast {
