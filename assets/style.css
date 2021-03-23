@@ -70,14 +70,14 @@ input {
 }
 
 .results h2 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 #current-date {
-    font-size: 40px;
-    color: var(--back-color);
-    padding: 0;
-    margin-top: 10px;
+  font-size: 40px;
+  color: var(--back-color);
+  padding: 0;
+  margin-top: 10px;
 }
 
 .current-weather {
@@ -97,8 +97,8 @@ input {
 }
 
 .forecast h2 {
-    color: var(--back-color);
-    padding-left: 10px;
+  color: var(--back-color);
+  padding-left: 10px;
 }
 
 #box {
